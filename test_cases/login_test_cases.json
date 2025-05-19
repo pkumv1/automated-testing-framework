@@ -1,0 +1,112 @@
+[
+  {
+    "id": "login-001",
+    "name": "Valid User Login",
+    "description": "Test login functionality for valid user",
+    "priority": "high",
+    "preconditions": "Application is accessible, user account exists",
+    "steps": [
+      "Navigate to login page",
+      "Enter valid username 'standard_user'",
+      "Enter valid password 'secret_sauce'",
+      "Click login button"
+    ],
+    "expected_results": [
+      "User should be redirected to inventory page",
+      "URL should be /inventory.html",
+      "Inventory items should be displayed"
+    ],
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "login-002",
+    "name": "Invalid Credentials Login",
+    "description": "Test login functionality with invalid credentials",
+    "priority": "high",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to login page",
+      "Enter invalid username 'invalid_user'",
+      "Enter invalid password 'invalid_password'",
+      "Click login button"
+    ],
+    "expected_results": [
+      "User should remain on login page",
+      "Error message should be displayed",
+      "Error message should indicate invalid credentials"
+    ],
+    "test_data": {
+      "username": "invalid_user",
+      "password": "invalid_password"
+    }
+  },
+  {
+    "id": "login-003",
+    "name": "Locked Out User Login",
+    "description": "Test login functionality with locked out user",
+    "priority": "medium",
+    "preconditions": "Application is accessible, locked out user account exists",
+    "steps": [
+      "Navigate to login page",
+      "Enter locked out username 'locked_out_user'",
+      "Enter valid password 'secret_sauce'",
+      "Click login button"
+    ],
+    "expected_results": [
+      "User should remain on login page",
+      "Error message should be displayed",
+      "Error message should indicate user is locked out"
+    ],
+    "test_data": {
+      "username": "locked_out_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "login-004",
+    "name": "Problem User Login",
+    "description": "Test login functionality with problem user",
+    "priority": "medium",
+    "preconditions": "Application is accessible, problem user account exists",
+    "steps": [
+      "Navigate to login page",
+      "Enter problem user username 'problem_user'",
+      "Enter valid password 'secret_sauce'",
+      "Click login button"
+    ],
+    "expected_results": [
+      "User should be redirected to inventory page",
+      "URL should be /inventory.html",
+      "Inventory items should be displayed with known issues"
+    ],
+    "test_data": {
+      "username": "problem_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "login-005",
+    "name": "Performance Glitch User Login",
+    "description": "Test login functionality with performance glitch user",
+    "priority": "medium",
+    "preconditions": "Application is accessible, performance glitch user account exists",
+    "steps": [
+      "Navigate to login page",
+      "Enter performance glitch username 'performance_glitch_user'",
+      "Enter valid password 'secret_sauce'",
+      "Click login button"
+    ],
+    "expected_results": [
+      "User should be redirected to inventory page after a delay",
+      "URL should be /inventory.html",
+      "Inventory items should be displayed"
+    ],
+    "test_data": {
+      "username": "performance_glitch_user",
+      "password": "secret_sauce"
+    }
+  }
+]
