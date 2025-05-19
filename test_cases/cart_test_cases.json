@@ -1,0 +1,146 @@
+[
+  {
+    "id": "cart-001",
+    "name": "Add Item to Cart",
+    "description": "Test adding a single item to the shopping cart",
+    "priority": "high",
+    "preconditions": "User is logged in, user is on inventory page",
+    "steps": [
+      "Click 'Add to cart' button for the first item",
+      "Verify cart badge shows '1'",
+      "Click on the shopping cart icon",
+      "Verify navigation to cart page"
+    ],
+    "expected_results": [
+      "Cart badge should display '1'",
+      "Shopping cart page should show the added item",
+      "Item details should match the selected product"
+    ],
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "cart-002",
+    "name": "Add Multiple Items to Cart",
+    "description": "Test adding multiple items to the shopping cart",
+    "priority": "high",
+    "preconditions": "User is logged in, user is on inventory page",
+    "steps": [
+      "Click 'Add to cart' button for the first item",
+      "Click 'Add to cart' button for the second item",
+      "Verify cart badge shows '2'",
+      "Click on the shopping cart icon",
+      "Verify navigation to cart page"
+    ],
+    "expected_results": [
+      "Cart badge should display '2'",
+      "Shopping cart page should show both added items",
+      "Item details should match the selected products"
+    ],
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "cart-003",
+    "name": "Remove Item from Cart",
+    "description": "Test removing an item from the shopping cart",
+    "priority": "high",
+    "preconditions": "User is logged in, user has added an item to the cart",
+    "steps": [
+      "Add item to cart",
+      "Navigate to cart page",
+      "Click 'Remove' button for the item",
+      "Verify item is removed"
+    ],
+    "expected_results": [
+      "Item should be removed from the cart",
+      "Cart badge should no longer be displayed",
+      "Cart should be empty"
+    ],
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "cart-004",
+    "name": "Continue Shopping from Cart",
+    "description": "Test the continue shopping functionality from cart page",
+    "priority": "medium",
+    "preconditions": "User is logged in, user has navigated to the cart page",
+    "steps": [
+      "Add item to cart",
+      "Navigate to cart page",
+      "Click 'Continue Shopping' button",
+      "Verify navigation back to inventory page"
+    ],
+    "expected_results": [
+      "User should be redirected to the inventory page",
+      "URL should be /inventory.html",
+      "Added item should still be in the cart (badge showing items)"
+    ],
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "cart-005",
+    "name": "Checkout Process",
+    "description": "Test the complete checkout process",
+    "priority": "high",
+    "preconditions": "User is logged in, user has added an item to the cart",
+    "steps": [
+      "Add item to cart",
+      "Navigate to cart page",
+      "Click 'Checkout' button",
+      "Fill in first name, last name, and postal code",
+      "Click 'Continue' button",
+      "Verify checkout overview",
+      "Click 'Finish' button",
+      "Verify checkout complete page"
+    ],
+    "expected_results": [
+      "Checkout information page should load correctly",
+      "Checkout overview page should display correct item and pricing information",
+      "Checkout complete page should show confirmation message"
+    ],
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce",
+      "firstName": "Test",
+      "lastName": "User",
+      "postalCode": "12345"
+    }
+  },
+  {
+    "id": "cart-006",
+    "name": "Checkout Information Validation",
+    "description": "Test form validation during checkout process",
+    "priority": "medium",
+    "preconditions": "User is logged in, user has added an item to the cart, user has navigated to checkout information page",
+    "steps": [
+      "Try to continue without filling any fields",
+      "Fill in first name only and try to continue",
+      "Fill in first and last name only and try to continue",
+      "Fill in all fields correctly and continue"
+    ],
+    "expected_results": [
+      "Error message for missing first name should be displayed",
+      "Error message for missing last name should be displayed",
+      "Error message for missing postal code should be displayed",
+      "With all fields filled, user should proceed to checkout overview page"
+    ],
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce",
+      "firstName": "Test",
+      "lastName": "User",
+      "postalCode": "12345"
+    }
+  }
+]
