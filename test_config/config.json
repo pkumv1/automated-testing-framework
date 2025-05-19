@@ -1,0 +1,119 @@
+{
+  "testConfig": {
+    "baseUrl": "https://www.saucedemo.com",
+    "timeout": 30000,
+    "retryAttempts": 2,
+    "screenshotOnFailure": true,
+    "browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "viewports": [
+      {
+        "name": "desktop",
+        "width": 1280,
+        "height": 800
+      },
+      {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024
+      },
+      {
+        "name": "mobile",
+        "width": 375,
+        "height": 667
+      }
+    ]
+  },
+  "testUsers": {
+    "standard": {
+      "username": "standard_user",
+      "password": "secret_sauce",
+      "description": "Regular user with standard access"
+    },
+    "locked": {
+      "username": "locked_out_user",
+      "password": "secret_sauce",
+      "description": "User that has been locked out"
+    },
+    "problem": {
+      "username": "problem_user",
+      "password": "secret_sauce",
+      "description": "User with intentional UI glitches"
+    },
+    "performance": {
+      "username": "performance_glitch_user",
+      "password": "secret_sauce",
+      "description": "User with intentional performance glitches"
+    }
+  },
+  "testData": {
+    "products": [
+      {
+        "name": "Sauce Labs Backpack",
+        "price": 29.99,
+        "image": "sauce-backpack-1200x1500.jpg"
+      },
+      {
+        "name": "Sauce Labs Bike Light",
+        "price": 9.99,
+        "image": "bike-light-1200x1500.jpg"
+      },
+      {
+        "name": "Sauce Labs Bolt T-Shirt",
+        "price": 15.99,
+        "image": "bolt-shirt-1200x1500.jpg"
+      },
+      {
+        "name": "Sauce Labs Fleece Jacket",
+        "price": 49.99,
+        "image": "sauce-pullover-1200x1500.jpg"
+      },
+      {
+        "name": "Sauce Labs Onesie",
+        "price": 7.99,
+        "image": "red-onesie-1200x1500.jpg"
+      },
+      {
+        "name": "Test.allTheThings() T-Shirt (Red)",
+        "price": 15.99,
+        "image": "red-tatt-1200x1500.jpg"
+      }
+    ],
+    "checkoutInfo": {
+      "firstName": "Test",
+      "lastName": "User",
+      "postalCode": "12345"
+    }
+  },
+  "performanceThresholds": {
+    "pageLoadTime": 3000,
+    "timeToInteractive": 2000,
+    "apiResponseTime": 1000,
+    "animationSmoothness": 60,
+    "firstContentfulPaint": 1500,
+    "largeContentfulPaint": 2500
+  },
+  "securityTests": {
+    "enableXssTests": true,
+    "enableSqlInjectionTests": true,
+    "enableSessionTests": true,
+    "enableCspTests": true,
+    "enableHttpsTests": true,
+    "enableHeaderTests": true,
+    "enableAccessControlTests": true
+  },
+  "reportConfig": {
+    "generatedReports": [
+      "html",
+      "json"
+    ],
+    "includeScreenshots": true,
+    "includeVideos": false,
+    "includeConsoleOutput": true,
+    "includePerformanceMetrics": true,
+    "historyRetentionDays": 30
+  }
+}
