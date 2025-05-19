@@ -1,0 +1,158 @@
+[
+  {
+    "id": "sec-001",
+    "name": "Login Form Input Sanitization",
+    "description": "Test login form for input sanitization and SQL injection prevention",
+    "priority": "high",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to login page",
+      "Enter SQL injection attack string in username field: \"' OR 1=1 --\"",
+      "Enter any password",
+      "Click login button"
+    ],
+    "expected_results": [
+      "Login should fail",
+      "Error message should be displayed",
+      "No SQL errors should be exposed in the UI"
+    ],
+    "security_category": "Input Validation",
+    "risk_level": "high"
+  },
+  {
+    "id": "sec-002",
+    "name": "XSS Attack Prevention in Login Form",
+    "description": "Test login form for Cross-Site Scripting (XSS) prevention",
+    "priority": "high",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to login page",
+      "Enter XSS attack string in username field: \"<script>alert('XSS')</script>\"",
+      "Enter any password",
+      "Click login button"
+    ],
+    "expected_results": [
+      "Login should fail",
+      "No JavaScript alert should be executed",
+      "Input should be properly sanitized or encoded"
+    ],
+    "security_category": "XSS Prevention",
+    "risk_level": "high"
+  },
+  {
+    "id": "sec-003",
+    "name": "Login Brute Force Prevention",
+    "description": "Test if the application prevents brute force login attempts",
+    "priority": "medium",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to login page",
+      "Enter invalid credentials and attempt login",
+      "Repeat login attempt with different passwords multiple times (10+)",
+      "Monitor for rate limiting or account lockout"
+    ],
+    "expected_results": [
+      "Application should implement rate limiting or account lockout after several failed attempts",
+      "Error message should not provide information that helps attackers"
+    ],
+    "security_category": "Authentication Security",
+    "risk_level": "medium"
+  },
+  {
+    "id": "sec-004",
+    "name": "Checkout Form Input Validation",
+    "description": "Test checkout form for proper input validation",
+    "priority": "high",
+    "preconditions": "User is logged in, user has added items to cart",
+    "steps": [
+      "Navigate to checkout page",
+      "Enter special characters in name fields: \"<>\"'%;)(&+\"",
+      "Enter non-numeric characters in postal code field",
+      "Submit the form"
+    ],
+    "expected_results": [
+      "Input should be properly validated",
+      "Special characters should be handled safely",
+      "Appropriate error messages should be displayed"
+    ],
+    "security_category": "Input Validation",
+    "risk_level": "medium"
+  },
+  {
+    "id": "sec-005",
+    "name": "Session Expiration Test",
+    "description": "Test if user sessions expire appropriately",
+    "priority": "medium",
+    "preconditions": "User is logged in",
+    "steps": [
+      "Log in to the application",
+      "Leave the session inactive for an extended period (30+ minutes if possible)",
+      "Attempt to perform an action requiring authentication"
+    ],
+    "expected_results": [
+      "Session should expire after inactivity",
+      "User should be redirected to login page when attempting authenticated actions"
+    ],
+    "security_category": "Session Management",
+    "risk_level": "medium"
+  },
+  {
+    "id": "sec-006",
+    "name": "URL Manipulation Test",
+    "description": "Test if direct URL access is properly protected",
+    "priority": "high",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Without logging in, attempt to directly access protected URLs:",
+      "- /inventory.html",
+      "- /cart.html",
+      "- /checkout-step-one.html",
+      "- /checkout-step-two.html",
+      "- /checkout-complete.html"
+    ],
+    "expected_results": [
+      "Unauthenticated access should be denied",
+      "User should be redirected to login page"
+    ],
+    "security_category": "Access Control",
+    "risk_level": "high"
+  },
+  {
+    "id": "sec-007",
+    "name": "HTTPS Implementation Test",
+    "description": "Test if the application implements HTTPS correctly",
+    "priority": "high",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to the application URL",
+      "Check if HTTPS is used",
+      "Check SSL/TLS certificate validity",
+      "Check for mixed content warnings"
+    ],
+    "expected_results": [
+      "Application should use HTTPS",
+      "SSL/TLS certificate should be valid",
+      "No mixed content warnings should be present"
+    ],
+    "security_category": "Transport Security",
+    "risk_level": "high"
+  },
+  {
+    "id": "sec-008",
+    "name": "Content Security Policy Check",
+    "description": "Test if the application implements Content Security Policy",
+    "priority": "medium",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Access the application",
+      "Inspect HTTP response headers",
+      "Check for Content-Security-Policy header"
+    ],
+    "expected_results": [
+      "Content-Security-Policy header should be present",
+      "CSP should restrict unsafe sources"
+    ],
+    "security_category": "Web Security Headers",
+    "risk_level": "medium"
+  }
+]
