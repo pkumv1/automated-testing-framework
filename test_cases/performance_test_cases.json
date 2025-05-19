@@ -1,0 +1,154 @@
+[
+  {
+    "id": "perf-001",
+    "name": "Login Page Load Time",
+    "description": "Test the load time of the login page",
+    "priority": "high",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to login page",
+      "Measure time until page is fully loaded"
+    ],
+    "expected_results": [
+      "Page should load in under 3 seconds",
+      "All page elements should be visible"
+    ],
+    "metrics": {
+      "pageLoadTime": {
+        "threshold": 3000,
+        "unit": "ms"
+      }
+    }
+  },
+  {
+    "id": "perf-002",
+    "name": "Time to Interactive",
+    "description": "Test the time until login form is interactive",
+    "priority": "medium",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to login page",
+      "Measure time until login form is interactive"
+    ],
+    "expected_results": [
+      "Login form should be interactive within 2 seconds",
+      "All form elements should be responsive"
+    ],
+    "metrics": {
+      "timeToInteractive": {
+        "threshold": 2000,
+        "unit": "ms"
+      }
+    }
+  },
+  {
+    "id": "perf-003",
+    "name": "Performance Glitch User Login Time",
+    "description": "Test login performance with performance_glitch_user",
+    "priority": "medium",
+    "preconditions": "Application is accessible",
+    "steps": [
+      "Navigate to login page",
+      "Enter performance glitch username 'performance_glitch_user'",
+      "Enter valid password 'secret_sauce'",
+      "Measure time from clicking login button to inventory page load"
+    ],
+    "expected_results": [
+      "Login should complete within 10 seconds",
+      "Inventory page should load successfully"
+    ],
+    "metrics": {
+      "loginTime": {
+        "threshold": 10000,
+        "unit": "ms"
+      }
+    },
+    "test_data": {
+      "username": "performance_glitch_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "perf-004",
+    "name": "Page Transition Performance",
+    "description": "Test performance of page transitions",
+    "priority": "medium",
+    "preconditions": "User is logged in",
+    "steps": [
+      "Navigate from inventory page to cart page",
+      "Measure transition time",
+      "Navigate from cart page back to inventory page",
+      "Measure transition time"
+    ],
+    "expected_results": [
+      "Page transitions should complete within 1 second",
+      "All page elements should load correctly after transition"
+    ],
+    "metrics": {
+      "transitionTime": {
+        "threshold": 1000,
+        "unit": "ms"
+      }
+    },
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "perf-005",
+    "name": "Image Load Performance",
+    "description": "Test the load time of product images",
+    "priority": "medium",
+    "preconditions": "User is logged in, user is on inventory page",
+    "steps": [
+      "Measure time until all product images are loaded"
+    ],
+    "expected_results": [
+      "All images should load within 3 seconds",
+      "Images should display correctly"
+    ],
+    "metrics": {
+      "imageLoadTime": {
+        "threshold": 3000,
+        "unit": "ms"
+      }
+    },
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  },
+  {
+    "id": "perf-006",
+    "name": "Checkout Process Performance",
+    "description": "Test the performance of the entire checkout process",
+    "priority": "high",
+    "preconditions": "User is logged in, user has added items to cart",
+    "steps": [
+      "Navigate to cart page",
+      "Click checkout button",
+      "Fill in checkout information",
+      "Continue to checkout overview",
+      "Complete checkout by clicking finish button",
+      "Measure total time for entire process"
+    ],
+    "expected_results": [
+      "Entire checkout process should complete within 5 seconds",
+      "All page transitions should be smooth"
+    ],
+    "metrics": {
+      "checkoutProcessTime": {
+        "threshold": 5000,
+        "unit": "ms"
+      }
+    },
+    "test_data": {
+      "username": "standard_user",
+      "password": "secret_sauce",
+      "firstName": "Test",
+      "lastName": "User",
+      "postalCode": "12345"
+    }
+  }
+]
